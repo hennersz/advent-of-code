@@ -14,10 +14,10 @@ import (
 
 // passPhilCmd represents the passPhil command
 var passPhilCmd = &cobra.Command{
-	Use:   "passPhil",
+	Use:   "pp",
 	Short: "Solves day 2: password philosophy",
 	Run: func(cmd *cobra.Command, args []string) {
-		reader := getInput()
+		reader := getInput("inFile", cmd)
 		defer reader.Close()
 
 		var res int

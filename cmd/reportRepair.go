@@ -14,10 +14,10 @@ import (
 
 // reportRepairCmd represents the reportRepair command
 var reportRepairCmd = &cobra.Command{
-	Use:   "reportRepair",
+	Use:   "rr",
 	Short: "Solves day 1: Report Repair",
 	Run: func(cmd *cobra.Command, args []string) {
-		reader := getInput()
+		reader := getInput("inFile", cmd)
 		defer reader.Close()
 
 		var res int

@@ -25,8 +25,8 @@ func init() {
 	rootCmd.MarkPersistentFlagRequired("inFile")
 }
 
-func getInput() *os.File {
-	inFilePath, err := rootCmd.Flags().GetString("inFile")
+func getInput(flag string, cmd *cobra.Command) *os.File {
+	inFilePath, err := cmd.Flags().GetString(flag)
 	if err != nil {
 		fmt.Printf("Error ocurred: %v\n", err)
 		os.Exit(1)
