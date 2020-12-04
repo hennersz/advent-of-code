@@ -1,4 +1,4 @@
-package reportRepair
+package day1
 
 import (
 	"bufio"

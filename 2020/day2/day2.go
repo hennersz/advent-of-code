@@ -1,4 +1,4 @@
-package passPhil
+package day2
 
 import (
 	"bufio"

@@ -8,13 +8,13 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/hennersz/advent-of-code/2020/reportRepair"
+	"github.com/hennersz/advent-of-code/2020/day1"
 	"github.com/spf13/cobra"
 )
 
-// reportRepairCmd represents the reportRepair command.
-var reportRepairCmd = &cobra.Command{
-	Use:   "rr",
+// day1Cmd represents the day1 command.
+var day1Cmd = &cobra.Command{
+	Use:   "day1",
 	Short: "Solves day 1: Report Repair",
 	Run: func(cmd *cobra.Command, args []string) {
 		reader := getInput("inFile", cmd)
@@ -24,9 +24,9 @@ var reportRepairCmd = &cobra.Command{
 		var err error
 
 		if b, _ := cmd.Flags().GetBool("triple"); b {
-			res, err = reportRepair.SolveTriple(reader)
+			res, err = day1.SolveTriple(reader)
 		} else {
-			res, err = reportRepair.Solve(reader)
+			res, err = day1.Solve(reader)
 		}
 
 		if err != nil {
@@ -39,6 +39,6 @@ var reportRepairCmd = &cobra.Command{
 }
 
 func init() {
-	rootCmd.AddCommand(reportRepairCmd)
-	reportRepairCmd.PersistentFlags().BoolP("triple", "t", false, "Solve for triple")
+	rootCmd.AddCommand(day1Cmd)
+	day1Cmd.PersistentFlags().BoolP("triple", "t", false, "Solve for triple")
 }

@@ -8,13 +8,13 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/hennersz/advent-of-code/2020/passPhil"
+	"github.com/hennersz/advent-of-code/2020/day2"
 	"github.com/spf13/cobra"
 )
 
-// passPhilCmd represents the passPhil command.
-var passPhilCmd = &cobra.Command{
-	Use:   "pp",
+// day2Cmd represents the day2 command.
+var day2Cmd = &cobra.Command{
+	Use:   "day2",
 	Short: "Solves day 2: password philosophy",
 	Run: func(cmd *cobra.Command, args []string) {
 		reader := getInput("inFile", cmd)
@@ -24,9 +24,9 @@ var passPhilCmd = &cobra.Command{
 		var err error
 
 		if b, _ := cmd.Flags().GetBool("position"); b {
-			res, err = passPhil.SolvePosition(reader)
+			res, err = day2.SolvePosition(reader)
 		} else {
-			res, err = passPhil.SolveRange(reader)
+			res, err = day2.SolveRange(reader)
 		}
 
 		if err != nil {
@@ -39,6 +39,6 @@ var passPhilCmd = &cobra.Command{
 }
 
 func init() {
-	rootCmd.AddCommand(passPhilCmd)
-	passPhilCmd.PersistentFlags().BoolP("position", "p", false, "Solve for position")
+	rootCmd.AddCommand(day2Cmd)
+	day2Cmd.PersistentFlags().BoolP("position", "p", false, "Solve for position")
 }

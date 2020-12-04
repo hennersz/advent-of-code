@@ -8,13 +8,13 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/hennersz/advent-of-code/2020/tobTraj"
+	"github.com/hennersz/advent-of-code/2020/day3"
 	"github.com/spf13/cobra"
 )
 
-// tobTrajCmd represents the tobTraj command.
-var tobTrajCmd = &cobra.Command{
-	Use:   "tt",
+// day3Cmd represents the day3 command.
+var day3Cmd = &cobra.Command{
+	Use:   "day3",
 	Short: "Solves day 3",
 	Run: func(cmd *cobra.Command, args []string) {
 		input := getInput("inFile", cmd)
@@ -22,7 +22,7 @@ var tobTrajCmd = &cobra.Command{
 		slopes := getInput("slopes", cmd)
 		defer slopes.Close()
 
-		res, err := tobTraj.Solve(input, slopes)
+		res, err := day3.Solve(input, slopes)
 		if err != nil {
 			fmt.Printf("Error occurred: %v\n", err)
 			os.Exit(1)
@@ -33,7 +33,7 @@ var tobTrajCmd = &cobra.Command{
 }
 
 func init() {
-	rootCmd.AddCommand(tobTrajCmd)
-	tobTrajCmd.PersistentFlags().StringP("slopes", "s", "", "Slopes file path (required)")
-	tobTrajCmd.MarkPersistentFlagRequired("slopes")
+	rootCmd.AddCommand(day3Cmd)
+	day3Cmd.PersistentFlags().StringP("slopes", "s", "", "Slopes file path (required)")
+	day3Cmd.MarkPersistentFlagRequired("slopes")
 }

@@ -1,4 +1,4 @@
-package tobTraj
+package day3
 
 import (
 	"bufio"

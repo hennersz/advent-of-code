@@ -1,4 +1,4 @@
-package tobTraj_test
+package day3_test
 
 import (
 	"bytes"
@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/hennersz/advent-of-code/2020/tobTraj"
+	"github.com/hennersz/advent-of-code/2020/day3"
 )
 
 func Test_solve(t *testing.T) {
@@ -43,7 +43,7 @@ func Test_solve(t *testing.T) {
 
 	for _, test := range cases {
 		t.Run(test.Description, func(t *testing.T) {
-			got, err := tobTraj.Solve(test.Input, test.Slopes)
+			got, err := day3.Solve(test.Input, test.Slopes)
 			if err != nil {
 				t.Fatalf("Unexpected error: %v", err)
 			}

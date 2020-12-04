@@ -1,4 +1,4 @@
-package passPhil_test
+package day1_test
 
 import (
 	"bytes"
@@ -6,10 +6,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/hennersz/advent-of-code/2020/passPhil"
+	"github.com/hennersz/advent-of-code/2020/day1"
 )
 
-func Test_SolveRange(t *testing.T) {
+func Test_solve(t *testing.T) {
 	cases := []struct {
 		Description string
 		Input       io.Reader
@@ -17,14 +17,14 @@ func Test_SolveRange(t *testing.T) {
 	}{
 		{
 			"case1",
-			bytes.NewReader([]byte(strings.Join([]string{"1-3 a: abcde", "1-3 b: cdefg", "2-9 c: ccccccccc"}, "\n"))),
-			2,
+			bytes.NewReader([]byte(strings.Join([]string{"1721", "979", "366", "299", "675", "1456"}, "\n"))),
+			514579,
 		},
 	}
 
 	for _, test := range cases {
 		t.Run(test.Description, func(t *testing.T) {
-			got, err := passPhil.SolveRange(test.Input)
+			got, err := day1.Solve(test.Input)
 			if err != nil {
 				t.Fatalf("Unexpected error: %v", err)
 			}
@@ -36,22 +36,24 @@ func Test_SolveRange(t *testing.T) {
 	}
 }
 
-func Test_SolvePosition(t *testing.T) {
+func Test_solveN(t *testing.T) {
 	cases := []struct {
 		Description string
 		Input       io.Reader
+		N           int
 		Want        int
 	}{
 		{
 			"case1",
-			bytes.NewReader([]byte(strings.Join([]string{"1-3 a: abcde", "1-3 b: cdefg", "2-9 c: ccccccccc"}, "\n"))),
-			1,
+			bytes.NewReader([]byte(strings.Join([]string{"1721", "979", "366", "299", "675", "1456"}, "\n"))),
+			3,
+			241861950,
 		},
 	}
 
 	for _, test := range cases {
 		t.Run(test.Description, func(t *testing.T) {
-			got, err := passPhil.SolvePosition(test.Input)
+			got, err := day1.SolveTriple(test.Input)
 			if err != nil {
 				t.Fatalf("Unexpected error: %v", err)
 			}
