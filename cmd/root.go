@@ -28,13 +28,13 @@ func init() {
 func getInput(flag string, cmd *cobra.Command) *os.File {
 	inFilePath, err := cmd.Flags().GetString(flag)
 	if err != nil {
-		fmt.Printf("Error ocurred: %v\n", err)
+		fmt.Printf("Error occurred: %v\n", err)
 		os.Exit(1)
 	}
 
 	reader, err := os.Open(inFilePath)
 	if err != nil {
-		fmt.Printf("Error ocurred: %v\n", err)
+		fmt.Printf("Error occurred: %v\n", err)
 		os.Exit(1)
 	}
 

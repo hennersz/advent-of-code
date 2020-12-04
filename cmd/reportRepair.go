@@ -12,7 +12,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// reportRepairCmd represents the reportRepair command
+// reportRepairCmd represents the reportRepair command.
 var reportRepairCmd = &cobra.Command{
 	Use:   "rr",
 	Short: "Solves day 1: Report Repair",
@@ -30,7 +30,7 @@ var reportRepairCmd = &cobra.Command{
 		}
 
 		if err != nil {
-			fmt.Printf("Error ocurred: %v\n", err)
+			fmt.Printf("Error occurred: %v\n", err)
 			os.Exit(1)
 		}
 

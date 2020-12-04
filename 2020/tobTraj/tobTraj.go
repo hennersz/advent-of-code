@@ -42,41 +42,30 @@ func Solve(input io.Reader, slopesInput io.Reader) (int, error) {
 
 	total := 1
 	for _, s := range slopes {
-		res, err := solve(bytes.NewReader(inputBuffer), s.across, s.down)
-		if err != nil {
-			return 0, err
-		}
-		total *= res
+		total *= solve(bytes.NewReader(inputBuffer), s.across, s.down)
 	}
 
 	return total, nil
 }
 
-func solve(input io.Reader, across, down int) (int, error) {
+func solve(input io.Reader, across, down int) int {
 	r := bufio.NewScanner(input)
 	count := 0
 	lineIndex := 0
-	LINE_LENGTH := 0
+	linesLeft := r.Scan()
+	LINE_LENGTH := len(r.Text())
 
-	for r.Scan() {
-		if LINE_LENGTH == 0 {
-			LINE_LENGTH = len(r.Text())
-		}
-
-		pos := r.Text()[lineIndex]
-		if pos == TREE {
+	for ; linesLeft; linesLeft = r.Scan() {
+		if r.Text()[lineIndex] == TREE {
 			count++
 		}
 
-		lineIndex += across
-		if lineIndex >= LINE_LENGTH {
-			lineIndex = lineIndex % LINE_LENGTH
-		}
+		lineIndex = (lineIndex + across) % LINE_LENGTH
 
 		for i := down - 1; i > 0; i-- {
 			r.Scan()
 		}
 	}
 
-	return count, nil
+	return count
 }

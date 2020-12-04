@@ -12,7 +12,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// passPhilCmd represents the passPhil command
+// passPhilCmd represents the passPhil command.
 var passPhilCmd = &cobra.Command{
 	Use:   "pp",
 	Short: "Solves day 2: password philosophy",
@@ -30,7 +30,7 @@ var passPhilCmd = &cobra.Command{
 		}
 
 		if err != nil {
-			fmt.Printf("Error ocurred: %v\n", err)
+			fmt.Printf("Error occurred: %v\n", err)
 			os.Exit(1)
 		}
 

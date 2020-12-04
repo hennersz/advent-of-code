@@ -12,7 +12,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// tobTrajCmd represents the tobTraj command
+// tobTrajCmd represents the tobTraj command.
 var tobTrajCmd = &cobra.Command{
 	Use:   "tt",
 	Short: "Solves day 3",
@@ -23,9 +23,8 @@ var tobTrajCmd = &cobra.Command{
 		defer slopes.Close()
 
 		res, err := tobTraj.Solve(input, slopes)
-
 		if err != nil {
-			fmt.Printf("Error ocurred: %v\n", err)
+			fmt.Printf("Error occurred: %v\n", err)
 			os.Exit(1)
 		}
 
